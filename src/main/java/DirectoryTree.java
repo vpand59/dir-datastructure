@@ -27,51 +27,51 @@ public class DirectoryTree {
         DirectoryTree directoryTree = new DirectoryTree();
 
         // Case 1: Adding a new file
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Demo.yml", "Content of file.json");
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Demo.yml", "Content of Demo.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding a new file\n");
+        System.out.println("Adding a new file:");
         directoryTree.visualize();
 
         // Case 2: Adding a new file inside a directory
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml", "Content of file.json");
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml", "Content of temp.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding a new file inside a directory\n");
+        System.out.println("\nAdding a new file inside a directory:");
         directoryTree.visualize();
         // Getting contents of a file using the key
         String content = directoryTree.get("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml");
-        System.out.println("Contents of the file: " + content);
+        System.out.println("Contents of the file temp.yml:--------> " + content);
 
         // Case 3: Adding a file which is already present -- It'll override the existing file
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml", "Content of overridden file.json");
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml", "Content of overridden temp.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding a file which is already present -- It'll override the existing file\n");
+        System.out.println("\nAdding a file which is already present -- It'll override the existing file:");
         directoryTree.visualize();
         // Getting contents of a file using the key
         String contentNew = directoryTree.get("ecm/AIM600000712/Repo1/e1/Dir1/temp.yml");
-        System.out.println("Contents of the overridden file: " + contentNew);
+        System.out.println("Contents of the overridden file temp.yml:--------> " + contentNew);
 
         // Case 4: Adding another file in already present directory
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp2.yml", "Content of file2.json");
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir1/temp2.yml", "Content of temp2.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding another file in already present directory\n");
+        System.out.println("\nAdding another file in already present directory:");
         directoryTree.visualize();
 
         // Case 5: Adding another directory inside same env
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir2/test.yml", "Content of file2.json");
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir2/test.yml", "Content of test.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding another directory inside same env\n");
+        System.out.println("\nAdding another directory inside same env:");
         directoryTree.visualize();
 
-        // Case 5: Adding duplicate file in the new directory under same env
-        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir2/temp2.yml", "Content of file2.json");
+        // Case 5: Adding a file in the new directory under same env with same name as a file already present in a different directory
+        directoryTree.put("ecm/AIM600000712/Repo1/e1/Dir2/temp2.yml", "Content of duplicate temp2.yml");
 
         // Visualize the directory tree
-        System.out.println("Adding duplicate file in the new directory under same env\n");
+        System.out.println("\nAdding a file in the new directory under same env with same name as a file already present in a different directory:");
         directoryTree.visualize();
     }
 
@@ -132,7 +132,7 @@ public class DirectoryTree {
     }
 
     public void visualize() {
-        System.out.println("Directory Tree Visualization:");
+        System.out.println("Directory Tree:");
         visualizeDirectoryTree(root, "");
     }
 
